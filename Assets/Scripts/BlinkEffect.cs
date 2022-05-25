@@ -3,13 +3,18 @@ using UnityEngine;
 
 public class BlinkEffect : MonoBehaviour
 {
-    [SerializeField] Color colorToBlink = Color.red;
+    [SerializeField, ColorUsage(false, true)] Color colorToBlink = Color.red;
     [SerializeField] AnimationCurve blinkBahaviour;
     [SerializeField] float blinkSpeed = 1;
 
     Renderer rendererComponent;
+    Material material;
 
-    private void Awake() => rendererComponent = GetComponent<Renderer>();
+    private void Awake()
+    { 
+        rendererComponent = GetComponent<Renderer>();
+        material = rendererComponent.material;
+    }
 
     public async void BlinkNoTask(float duration) => await BlinkTask(duration);
 
@@ -23,11 +28,13 @@ public class BlinkEffect : MonoBehaviour
         {
             lerp += blinkSpeed * Time.deltaTime;
 
-            rendererComponent.material.color = Color.Lerp(Color.white, colorToBlink, blinkBahaviour.Evaluate(Mathf.PingPong(lerp, 1)));
+            Color lerpColor = Color.Lerp(Color.clear, colorToBlink, blinkBahaviour.Evaluate(Mathf.PingPong(lerp, 1)));
+
+            if(material) material.SetColor("_EmissionColor", lerpColor);
 
             await Task.Yield();
         }
 
-        rendererComponent.material.color = Color.white;
+        if (material) material.SetColor("_EmissionColor", Color.clear);
     }
 }
