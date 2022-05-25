@@ -8,13 +8,13 @@ public class AnimationControl : MonoBehaviour
     int speedHash = Animator.StringToHash("Speed");
 
     Animator animator;
-    Rigidbody2D body;
+    Rigidbody body;
 
     Vector3 dir = Vector3.zero;
 
     private void Awake()
     {
-        body = GetComponent<Rigidbody2D>();
+        body = GetComponent<Rigidbody>();
         animator = GetComponent<Animator>();
     }
 
@@ -27,8 +27,7 @@ public class AnimationControl : MonoBehaviour
         }
 
         animator.SetFloat(horizontalHash, dir.x);
-        animator.SetFloat(verticalHash, dir.y);
+        animator.SetFloat(verticalHash, dir.z);
         animator.SetFloat(speedHash, body.velocity.magnitude);
     }
-
 }
