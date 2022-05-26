@@ -15,12 +15,12 @@ MonoBehaviour:
   active: 1
   threshold:
     m_OverrideState: 1
-    m_Value: 0.9
+    m_Value: 1
   intensity:
     m_OverrideState: 1
     m_Value: 2
   scatter:
-    m_OverrideState: 0
+    m_OverrideState: 1
     m_Value: 0.7
   clamp:
     m_OverrideState: 0
@@ -30,7 +30,7 @@ MonoBehaviour:
     m_Value: {r: 1, g: 1, b: 1, a: 1}
   highQualityFiltering:
     m_OverrideState: 0
-    m_Value: 0
+    m_Value: 1
   skipIterations:
     m_OverrideState: 0
     m_Value: 1
@@ -101,26 +101,26 @@ MonoBehaviour:
     m_OverrideState: 1
     m_Value: 2
   gaussianStart:
-    m_OverrideState: 1
+    m_OverrideState: 0
     m_Value: 17.06
   gaussianEnd:
-    m_OverrideState: 1
+    m_OverrideState: 0
     m_Value: 30
   gaussianMaxRadius:
-    m_OverrideState: 1
+    m_OverrideState: 0
     m_Value: 0.59
   highQualitySampling:
-    m_OverrideState: 1
+    m_OverrideState: 0
     m_Value: 0
   focusDistance:
-    m_OverrideState: 1
+    m_OverrideState: 0
     m_Value: 1
   aperture:
     m_OverrideState: 1
-    m_Value: 6
+    m_Value: 1
   focalLength:
     m_OverrideState: 1
-    m_Value: 35
+    m_Value: 60
   bladeCount:
     m_OverrideState: 0
     m_Value: 5
@@ -146,37 +146,8 @@ MonoBehaviour:
   - {fileID: -5934382383517952403}
   - {fileID: -8611116513790402198}
   - {fileID: 9053129731133418189}
-  - {fileID: 1335223778929265465}
   - {fileID: -4566989797873070302}
   - {fileID: -198806762973468666}
---- !u!114 &1335223778929265465
-MonoBehaviour:
-  m_ObjectHideFlags: 3
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 66f335fb1ffd8684294ad653bf1c7564, type: 3}
-  m_Name: ColorAdjustments
-  m_EditorClassIdentifier: 
-  active: 1
-  postExposure:
-    m_OverrideState: 1
-    m_Value: 0.6
-  contrast:
-    m_OverrideState: 1
-    m_Value: 1
-  colorFilter:
-    m_OverrideState: 0
-    m_Value: {r: 1, g: 1, b: 1, a: 1}
-  hueShift:
-    m_OverrideState: 0
-    m_Value: 0
-  saturation:
-    m_OverrideState: 0
-    m_Value: 0
 --- !u!114 &9053129731133418189
 MonoBehaviour:
   m_ObjectHideFlags: 3
