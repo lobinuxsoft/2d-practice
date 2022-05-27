@@ -5,17 +5,17 @@ using UnityEditor;
 using UnityEngine;
 using UnityEngine.Events;
 
-[RequireComponent(typeof(BoxCollider))]
-public class EventTrigger : MonoBehaviour
+[RequireComponent(typeof(SphereCollider))]
+public class SphereEventTrigger : MonoBehaviour
 {
     [SerializeField] private UnityEvent<GameObject> onTriggerEnterEvent;
 
-    private BoxCollider box;
+    private SphereCollider sphere;
 
     private void Awake()
     {
-        box = GetComponent<BoxCollider>();
-        box.isTrigger = true;
+        sphere = GetComponent<SphereCollider>();
+        sphere.isTrigger = true;
     }
 
     private void OnTriggerEnter(Collider other)
@@ -35,16 +35,16 @@ public class EventTrigger : MonoBehaviour
             labelStyle.alignment = TextAnchor.MiddleCenter;
         }
 
-        if (!box) box = GetComponent<BoxCollider>();
+        if (!sphere) sphere = GetComponent<SphereCollider>();
 
         Gizmos.matrix = transform.localToWorldMatrix;
         Gizmos.color = gizmoColor;
-        Gizmos.DrawWireCube(box.center, box.size);
+        Gizmos.DrawWireSphere(sphere.center, sphere.radius);
         Gizmos.color = new Color(gizmoColor.r, gizmoColor.g, gizmoColor.b, .25f);
-        Gizmos.DrawCube(box.center, box.size);
+        Gizmos.DrawSphere(sphere.center, sphere.radius);
         string text = $"<color=#{ColorUtility.ToHtmlStringRGB(gizmoColor)}><b>{gameObject.name}</b></color>";
         Handles.matrix = transform.localToWorldMatrix;
-        Handles.Label(box.center, text, labelStyle);
+        Handles.Label(sphere.center, text, labelStyle);
     }
 #endif
 }
