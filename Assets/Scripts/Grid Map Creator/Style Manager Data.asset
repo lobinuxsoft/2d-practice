@@ -13,9 +13,12 @@ MonoBehaviour:
   m_Name: Style Manager Data
   m_EditorClassIdentifier: 
   buttonStyles:
-  - icon: {fileID: 2800000, guid: 825c25dbdac21ee4db02ba2c55e0530a, type: 3}
-    text: Empty
   - icon: {fileID: 2800000, guid: 1b141bf5fed54e341a9d72ea5d5d8682, type: 3}
     text: Red
+    part: {fileID: 3220663692199456470, guid: 06af199ffa0d17d4ab493ad27ee1a10e, type: 3}
+  - icon: {fileID: 2800000, guid: 825c25dbdac21ee4db02ba2c55e0530a, type: 3}
+    text: Green
+    part: {fileID: 3220663692199456470, guid: a444d877fb760b74d82af21aea2036ea, type: 3}
   - icon: {fileID: 2800000, guid: b01ceb46b6a391846a272152c1a4c4fe, type: 3}
     text: Blue
+    part: {fileID: 3220663692199456470, guid: 13274fd1a136cd74699ae9d7f81e1265, type: 3}

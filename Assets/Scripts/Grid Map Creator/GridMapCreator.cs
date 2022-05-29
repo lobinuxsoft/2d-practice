@@ -9,12 +9,15 @@ public class GridMapCreator : EditorWindow
     Vector2 offset;
     Vector2 drag;
     bool isErasing;
+    Rect menuBar;
 
     List<List<Node>> nodes;
+    List<List<PartScripts>> parts;
 
-    GUIStyle emptyStyle;
     Vector2 nodePos;
     StyleManager styleManager;
+    ButtonStyle currentStyle;
+    GameObject theMap;
 
     [MenuItem("Crying Onion Tools/Grid Map Creator")]
     private static void OpenWindow()
@@ -26,10 +29,34 @@ public class GridMapCreator : EditorWindow
     private void OnEnable()
     {
         SetupStyles();
-        emptyStyle = new GUIStyle();
-        Texture2D icon = Resources.Load<Texture2D>("Icons/Empty");
-        emptyStyle.normal.background = icon;
-        SetUpNodes();
+        SetUpNodesAndParts();
+        SetupMap();
+    }
+
+    private void SetupMap()
+    {
+        try
+        {
+            theMap = GameObject.Find("Map");
+            RestoreMap(theMap);
+        }
+        catch (Exception error) { Debug.LogException(error); }
+        
+        if(!theMap) theMap = new GameObject("Map");
+    }
+
+    private void RestoreMap(GameObject theMap)
+    {
+        if(theMap.transform.childCount > 0)
+        {
+            var cells = theMap.GetComponentsInChildren<PartScripts>();
+
+            foreach (PartScripts cell in cells)
+            {
+                nodes[cell.Row][cell.Col].Style = cell.Style;
+                parts[cell.Row][cell.Col] = cell;
+            }
+        }
     }
 
     private void SetupStyles()
@@ -37,22 +64,32 @@ public class GridMapCreator : EditorWindow
         try
         {
             styleManager = GameObject.FindObjectOfType<StyleManager>();
+
+            if (!styleManager)
+            {
+                styleManager = new GameObject("Style Manager").AddComponent<StyleManager>();
+            }
         }
-        catch (Exception e) { }
+        catch (Exception error) { Debug.LogException(error); }
+
+        currentStyle = styleManager.Data.buttonStyles[0];
     }
 
-    private void SetUpNodes()
+    private void SetUpNodesAndParts()
     {
         nodes = new List<List<Node>>();
+        parts = new List<List<PartScripts>>();
 
         for (int i = 0; i < 20; i++)
         {
             nodes.Add(new List<Node>());
+            parts.Add(new List<PartScripts>());
 
             for (int j = 0; j < 10; j++)
             {
                 nodePos.Set(i * cellSize, j * cellSize);
-                nodes[i].Add(new Node(nodePos, cellSize, cellSize, emptyStyle));
+                nodes[i].Add(new Node(nodePos, cellSize, cellSize));
+                parts[i].Add(null);
             }
         }
     }
@@ -61,6 +98,7 @@ public class GridMapCreator : EditorWindow
     {
         DrawGrid();
         DrawNodes();
+        DrawMenuBar();
         ProcessNodes(Event.current);
         ProcessGrid(Event.current);
 
@@ -70,6 +108,26 @@ public class GridMapCreator : EditorWindow
         }
     }
 
+    private void DrawMenuBar()
+    {
+        menuBar = new Rect(0, 0, position.width, 20);
+        GUILayout.BeginArea(menuBar, EditorStyles.toolbar);
+
+        GUILayout.BeginHorizontal();
+
+        foreach (var item in styleManager.Data.buttonStyles)
+        {
+            if (GUILayout.Toggle(currentStyle.Equals(item), new GUIContent(item.Text), EditorStyles.toolbarButton))
+            {
+                currentStyle = item;
+            }
+        }
+
+        GUILayout.EndHorizontal();
+
+        GUILayout.EndArea();
+    }
+
     private void ProcessNodes(Event e)
     {
         int row = (int)((e.mousePosition.x - offset.x) / cellSize);
@@ -77,7 +135,7 @@ public class GridMapCreator : EditorWindow
 
         if (e.type == EventType.MouseDown && e.button == 0)
         {
-            if (nodes[row][col].Style.normal.background.name == "Empty")
+            if (nodes[row][col].Style.name == "Empty")
             {
                 isErasing = false;
             }
@@ -86,31 +144,42 @@ public class GridMapCreator : EditorWindow
                 isErasing = true;
             }
 
-            if (isErasing)
-            {
-                nodes[row][col].Style = emptyStyle;
-                GUI.changed = true;
-            }
-            else
-            {
-                nodes[row][col].Style = styleManager.Data.buttonStyles[1].Style;
-                GUI.changed = true;
-            }
+            PaintNodes(row, col);
         }
 
         if (e.type == EventType.MouseDrag && e.button == 0)
         {
-            if (isErasing)
-            {
-                nodes[row][col].Style = emptyStyle;
-                GUI.changed = true;
-            }
-            else
-            {
-                nodes[row][col].Style = styleManager.Data.buttonStyles[1].Style;
-                GUI.changed = true;
-            }
+            PaintNodes(row, col);
             e.Use();
+        }
+    }
+
+    private void PaintNodes(int row, int col)
+    {
+        if (isErasing)
+        {
+            if (parts[row][col])
+            { 
+                nodes[row][col].Style = null;
+                DestroyImmediate(parts[row][col].gameObject);
+                parts[row][col] = null;
+                GUI.changed = true;
+            }
+        }
+        else
+        {
+            if (!parts[row][col])
+            {
+                nodes[row][col].Style = currentStyle.Style;
+                PartScripts part = Instantiate(currentStyle.Part, theMap.transform);
+                part.name = currentStyle.Text;
+                part.transform.position = new Vector3(col * 10, 0, row * 10) + Vector3.forward * 5 + Vector3.right * 5;
+                part.Style = currentStyle.Style;
+                part.Row = row;
+                part.Col = col;
+                parts[row][col] = part;
+                GUI.changed = true;
+            }
         }
     }
 

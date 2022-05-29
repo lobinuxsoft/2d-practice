@@ -5,6 +5,7 @@ public struct ButtonStyle
 {
     [SerializeField] private Texture2D icon;
     [SerializeField] private string text;
+    [SerializeField] private PartScripts part;
 
     private GUIStyle style;
 
@@ -18,6 +19,12 @@ public struct ButtonStyle
     {
         get => text;
         set => text = value;
+    }
+
+    public PartScripts Part
+    {
+        get => part;
+        set => part = value;
     }
 
     public GUIStyle Style
