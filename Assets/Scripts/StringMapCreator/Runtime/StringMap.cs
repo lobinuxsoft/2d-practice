@@ -5,6 +5,7 @@ using UnityEngine;
 public class StringMap : MonoBehaviour
 {
     [SerializeField, Min(0)] int index = 0;
+    [SerializeField, Min(0)] float cellSpaces = 1;
     [SerializeField] List<TextAsset> maps;
     [SerializeField] List<CellData> cellsData;
 
@@ -12,6 +13,12 @@ public class StringMap : MonoBehaviour
     {
         get => index;
         set => index = value;
+    }
+
+    public float CellSpaces
+    {
+        get => cellSpaces;
+        set => cellSpaces = value;
     }
 
     public void OnValidate()
@@ -50,8 +57,8 @@ public class StringMap : MonoBehaviour
                     if (celldata.prefab != null)
                     {
                         GameObject go = Instantiate(celldata.prefab, this.transform);
-                        go.transform.localPosition = new Vector3(col, 0f, -row);
-                    
+                        go.transform.localPosition = Vector3.zero;
+                        go.transform.localPosition += new Vector3(col * cellSpaces, 0f, -row * cellSpaces);
                         go.name = $"({row},{col})";
                     }
                     else

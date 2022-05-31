@@ -2,7 +2,7 @@
     F               F
     F               F
     F               F
-                    F
+                    
     F               F
     F               F
     F               F
@@ -12,7 +12,7 @@
        F  F
     AEED  CEEEEEEEEEB
     F               F
-    F               F
+    F               
     F               F
     F               F
     F               F
@@ -22,4 +22,4 @@
     F               F
     CEEB  AEEEEEEEEED
        F  F
-       CEED
+       F  F
