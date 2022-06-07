@@ -1,0 +1,131 @@
+.menu_button {
+    width: auto;
+    height: auto;
+    font-size: 100px;
+    background-image: url('project://database/Assets/UI/Art/UI/_Btn%20Preview/BackgroundKeyboard.png?fileID=21300000&guid=2a07db719ef564c43939d7dc7c659953&type=3#BackgroundKeyboard');
+    -unity-slice-left: 16;
+    -unity-slice-top: 16;
+    -unity-slice-right: 16;
+    -unity-slice-bottom: 16;
+    -unity-text-align: middle-center;
+    -unity-font-style: bold;
+    padding-bottom: 20px;
+    padding-top: 20px;
+    text-shadow: 1px 1px 2px rgb(58, 36, 0);
+    background-color: rgba(0, 0, 0, 0);
+    border-left-color: rgba(0, 0, 0, 0);
+    border-right-color: rgba(0, 0, 0, 0);
+    border-top-color: rgba(0, 0, 0, 0);
+    border-bottom-color: rgba(0, 0, 0, 0);
+    margin-top: 20px;
+    transition-duration: 0.5s;
+    padding-left: 80px;
+    padding-right: 80px;
+}
+
+.menu_button:hover {
+    width: auto;
+    height: auto;
+    font-size: 100px;
+    background-image: url('project://database/Assets/UI/Art/UI/_Btn%20Preview/BackgroundKeyboard.png?fileID=21300000&guid=2a07db719ef564c43939d7dc7c659953&type=3#BackgroundKeyboard');
+    -unity-slice-left: 16;
+    -unity-slice-top: 16;
+    -unity-slice-right: 16;
+    -unity-slice-bottom: 16;
+    -unity-text-align: middle-center;
+    -unity-font-style: bold;
+    padding-bottom: 20px;
+    padding-top: 20px;
+    text-shadow: 1px 1px 2px rgb(58, 36, 0);
+    background-color: rgba(0, 0, 0, 0);
+    border-left-color: rgba(0, 0, 0, 0);
+    border-right-color: rgba(0, 0, 0, 0);
+    border-top-color: rgba(0, 0, 0, 0);
+    border-bottom-color: rgba(0, 0, 0, 0);
+    margin-top: 20px;
+    transition-duration: 0.5s;
+    padding-left: 80px;
+    padding-right: 80px;
+    scale: 1.2 1.2;
+    transition-timing-function: ease-out-bounce;
+}
+
+.menu_button:active {
+    width: auto;
+    height: auto;
+    font-size: 100px;
+    background-image: url('project://database/Assets/UI/Art/UI/_Btn%20Preview/BackgroundKeyboard.png?fileID=21300000&guid=2a07db719ef564c43939d7dc7c659953&type=3#BackgroundKeyboard');
+    -unity-slice-left: 16;
+    -unity-slice-top: 16;
+    -unity-slice-right: 16;
+    -unity-slice-bottom: 16;
+    -unity-text-align: middle-center;
+    -unity-font-style: bold;
+    padding-bottom: 20px;
+    padding-top: 20px;
+    text-shadow: 1px 1px 2px rgb(58, 36, 0);
+    background-color: rgba(0, 0, 0, 0);
+    border-left-color: rgba(0, 0, 0, 0);
+    border-right-color: rgba(0, 0, 0, 0);
+    border-top-color: rgba(0, 0, 0, 0);
+    border-bottom-color: rgba(0, 0, 0, 0);
+    margin-top: 20px;
+    transition-duration: 0.25s;
+    padding-left: 80px;
+    padding-right: 80px;
+    transition-timing-function: ease-out-bounce;
+    scale: 1.4 1.2;
+}
+
+.popup {
+    position: absolute;
+    flex-grow: 1;
+    width: auto;
+    height: auto;
+    left: 25%;
+    right: 25%;
+    background-image: url('project://database/Assets/UI/Art/UI/FrameBorder.png?fileID=21300000&guid=ec633af7d3476a04985e491aadcf237a&type=3#FrameBorder');
+    -unity-slice-left: 1;
+    -unity-slice-top: 1;
+    -unity-slice-right: 1;
+    -unity-slice-bottom: 1;
+    align-items: center;
+    transition-duration: 0.5s;
+    transition-timing-function: ease-out-bounce;
+}
+
+.popup:enabled {
+    position: absolute;
+    flex-grow: 1;
+    width: 50%;
+    height: 100%;
+    left: 25%;
+    right: 25%;
+    background-image: url('project://database/Assets/UI/Art/UI/FrameBorder.png?fileID=21300000&guid=ec633af7d3476a04985e491aadcf237a&type=3#FrameBorder');
+    -unity-slice-left: 1;
+    -unity-slice-top: 1;
+    -unity-slice-right: 1;
+    -unity-slice-bottom: 1;
+    align-items: center;
+    transition-duration: 0.5s;
+    transition-timing-function: ease-out-bounce;
+    translate: 0 0;
+}
+
+.popup:disabled {
+    position: absolute;
+    flex-grow: 1;
+    width: 50%;
+    height: 100%;
+    left: 25%;
+    right: 25%;
+    background-image: url('project://database/Assets/UI/Art/UI/FrameBorder.png?fileID=21300000&guid=ec633af7d3476a04985e491aadcf237a&type=3#FrameBorder');
+    -unity-slice-left: 1;
+    -unity-slice-top: 1;
+    -unity-slice-right: 1;
+    -unity-slice-bottom: 1;
+    align-items: center;
+    transition-duration: 0.5s;
+    transition-timing-function: ease-out-bounce;
+    translate: 0 120%;
+}

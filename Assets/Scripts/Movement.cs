@@ -56,7 +56,8 @@ public class Movement : MonoBehaviour
             Handles.color = gizmosColor;
             Handles.matrix = transform.localToWorldMatrix;
             Handles.CircleHandleCap(0, Vector3.zero, Quaternion.LookRotation(Vector3.up), 1, EventType.Repaint);
-            Handles.ArrowHandleCap(0, Vector3.zero, Quaternion.LookRotation(body.velocity.normalized), Vector3.ClampMagnitude(body.velocity, 1).magnitude, EventType.Repaint);
+            if(body.velocity.magnitude > 0)
+                Handles.ArrowHandleCap(0, Vector3.zero, Quaternion.LookRotation(body.velocity.normalized), Vector3.ClampMagnitude(body.velocity, 1).magnitude, EventType.Repaint);
         }
     }
 #endif
