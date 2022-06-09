@@ -1,9 +1,14 @@
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.UIElements;
+using UnityEngine.Events;
+using UnityEngine.SceneManagement;
+using System.Collections;
 
 public class MainMenuUI : MonoBehaviour
 {
+    [SerializeField] string nextSceneName = "";
+
     UIDocument document;
 
     // Main menu
@@ -15,6 +20,9 @@ public class MainMenuUI : MonoBehaviour
     // Credit panel
     VisualElement creditPanel;
     Button closeCreditsButton;
+
+    // Transition
+    VisualElement transition;
 
     private void Awake()
     {
@@ -28,6 +36,8 @@ public class MainMenuUI : MonoBehaviour
         creditPanel = document.rootVisualElement.Q<VisualElement>("credits-panel");
         closeCreditsButton = document.rootVisualElement.Q<Button>("close-credits-button");
 
+        transition = document.rootVisualElement.Q<VisualElement>("transition");
+
         playButton.clicked += PlayGame;
         optionButton.clicked += ShowOptions;
         creditsButton.clicked += ShowCredits;
@@ -35,6 +45,11 @@ public class MainMenuUI : MonoBehaviour
         quitButton.clicked += QuitGame;
 
         HideCredits();
+    }
+
+    private void Start()
+    {
+        StartCoroutine(InitialShowScene(1));
     }
 
     private void OnDestroy()
@@ -46,7 +61,11 @@ public class MainMenuUI : MonoBehaviour
         quitButton.clicked -= QuitGame;
     }
 
-    private void PlayGame() => Debug.Log("JUGAR!!!");
+    private void PlayGame()
+    {
+        transition.RegisterCallback<TransitionEndEvent>(ChangeScene);
+        transition.SetEnabled(true);
+    }
 
     private void ShowOptions() => Debug.Log("OPCIONES!!!");
 
@@ -61,5 +80,13 @@ public class MainMenuUI : MonoBehaviour
 #else
         Application.Quit();
 #endif
+    }
+
+    private void ChangeScene(TransitionEndEvent evt) => SceneManager.LoadScene(nextSceneName);
+
+    IEnumerator InitialShowScene(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        transition.SetEnabled(false);
     }
 }
