@@ -3,7 +3,9 @@ using UnityEngine.InputSystem;
 
 public class BombDropper : MonoBehaviour
 {
-    [SerializeField] GameObject bombPrefab;
+    [SerializeField] float highSpawnOffset = 0;
+    [SerializeField] int explosionLenght = 3;
+    [SerializeField] Bomb bombPrefab;
 
     public void InputDropBomb(InputAction.CallbackContext context)
     {
@@ -16,7 +18,8 @@ public class BombDropper : MonoBehaviour
     {
         if(bombPrefab)
         {
-            Vector3 pos = new Vector3(Mathf.RoundToInt(transform.position.x), transform.position.y, Mathf.RoundToInt(transform.position.z));
+            Vector3 pos = new Vector3(Mathf.RoundToInt(transform.position.x), highSpawnOffset, Mathf.RoundToInt(transform.position.z));
+            bombPrefab.ExplosionLenght = explosionLenght;
             Instantiate(bombPrefab, pos, bombPrefab.transform.rotation);
         }
     }

@@ -18,7 +18,8 @@ GameObject:
   - component: {fileID: 5716222252962854142}
   - component: {fileID: 4766487967479813614}
   - component: {fileID: 8825757011158259835}
-  m_Layer: 0
+  - component: {fileID: 6726198265118930191}
+  m_Layer: 3
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -291,4 +292,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2772f7806f9681c48a4b1f691e753b70, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bombPrefab: {fileID: 4723184974841625831, guid: f3b67ea8f2f973b4bb271323dadb0e6e, type: 3}
+  highSpawnOffset: 0.5
+  explosionLenght: 3
+  bombPrefab: {fileID: 3106493801830195935, guid: f3b67ea8f2f973b4bb271323dadb0e6e, type: 3}
+--- !u!114 &6726198265118930191
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5716222252962854022}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 39659d9edeeff2245bb512020c89ba4b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 10
+  maxHealth: 10

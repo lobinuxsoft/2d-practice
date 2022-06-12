@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 3106493801830195935}
   - component: {fileID: -3822026441472387213}
   - component: {fileID: -513693040406896323}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Bomb
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -98,6 +98,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc1f31aefcfbd424aae7036b0b750b7b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  blockMask:
+    serializedVersion: 2
+    m_Bits: 1
+  explosionLenght: 20
+  delayExplosionsInMilisec: 50
   explosion: {fileID: 2011333240752990700, guid: 3f54548a67af5d54e8930b879caef615, type: 3}
 --- !u!114 &-3822026441472387213
 MonoBehaviour:
