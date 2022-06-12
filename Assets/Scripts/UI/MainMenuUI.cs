@@ -1,7 +1,6 @@
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.UIElements;
-using UnityEngine.Events;
 using UnityEngine.SceneManagement;
 using System.Collections;
 
@@ -21,6 +20,10 @@ public class MainMenuUI : MonoBehaviour
     VisualElement creditPanel;
     Button closeCreditsButton;
 
+    // Option panel
+    VisualElement optionsPanel;
+    Button closeOptionsButton;
+
     // Transition
     VisualElement transition;
 
@@ -30,11 +33,17 @@ public class MainMenuUI : MonoBehaviour
 
         playButton = document.rootVisualElement.Q<Button>("play-button");
         optionButton = document.rootVisualElement.Q<Button>("option-button");
+
         creditsButton = document.rootVisualElement.Q<Button>("credits-button");
         quitButton = document.rootVisualElement.Q<Button>("quit-button");
 
+        optionsPanel = document.rootVisualElement.Q<VisualElement>("options-panel");
+        closeOptionsButton = document.rootVisualElement.Q<Button>("close-options-button");
+
         creditPanel = document.rootVisualElement.Q<VisualElement>("credits-panel");
         closeCreditsButton = document.rootVisualElement.Q<Button>("close-credits-button");
+
+
 
         transition = document.rootVisualElement.Q<VisualElement>("transition");
 
@@ -42,9 +51,11 @@ public class MainMenuUI : MonoBehaviour
         optionButton.clicked += ShowOptions;
         creditsButton.clicked += ShowCredits;
         closeCreditsButton.clicked += HideCredits;
+        closeOptionsButton.clicked += HideOptions;
         quitButton.clicked += QuitGame;
 
         HideCredits();
+        HideOptions();
     }
 
     private void Start()
@@ -58,6 +69,7 @@ public class MainMenuUI : MonoBehaviour
         optionButton.clicked -= ShowOptions;
         creditsButton.clicked -= ShowCredits;
         closeCreditsButton.clicked -= HideCredits;
+        closeOptionsButton.clicked -= HideOptions;
         quitButton.clicked -= QuitGame;
     }
 
@@ -67,7 +79,9 @@ public class MainMenuUI : MonoBehaviour
         transition.SetEnabled(true);
     }
 
-    private void ShowOptions() => Debug.Log("OPCIONES!!!");
+    private void ShowOptions() => optionsPanel.SetEnabled(true);
+
+    private void HideOptions() => optionsPanel.SetEnabled(false);
 
     private void ShowCredits() => creditPanel.SetEnabled(true);
 

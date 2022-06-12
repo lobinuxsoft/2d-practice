@@ -11,9 +11,9 @@
     <ui:VisualElement name="options-panel" class="popup" style="height: 90%; left: 5%; right: 5%; width: 90%; top: 5%; bottom: 5%; justify-content: space-around; align-items: stretch;">
         <ui:VisualElement style="flex-grow: 1; overflow: visible; position: absolute; width: 100%; height: 100%; background-image: url(&apos;project://database/Assets/UI/Art/UI/Frame1.png?fileID=21300000&amp;guid=bb631713d063a2f4c95f180d19a009f2&amp;type=3#Frame1&apos;);" />
         <ui:Label text="Options" display-tooltip-when-elided="true" style="flex-shrink: 1; flex-grow: 0; -unity-text-align: middle-center; font-size: 150%; color: rgb(132, 72, 72); -unity-font-style: bold; margin-top: 30px;" />
-        <ui:VisualElement>
-            <ui:Label text="Audio Volume" display-tooltip-when-elided="true" style="-unity-text-align: middle-center; font-size: 50%; color: rgb(132, 72, 63); white-space: normal;" />
-            <ui:Slider picking-mode="Ignore" value="0" high-value="2" low-value="-80" name="audio-volume" class="unity-base-slider__tracker" />
+        <ui:VisualElement style="margin-left: 10%; margin-right: 10%;">
+            <ui:Label text="Audio Volume" display-tooltip-when-elided="true" style="-unity-text-align: middle-center; font-size: 80%; color: rgb(132, 72, 63); white-space: normal;" />
+            <ui:Slider value="0" high-value="2" low-value="-80" name="audio-volume" />
         </ui:VisualElement>
         <ui:Button text="Back" display-tooltip-when-elided="true" name="close-options-button" class="menu_button" style="margin-bottom: 70px;" />
     </ui:VisualElement>
