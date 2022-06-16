@@ -12,6 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 38b5c8b3453d22743aeed5767f70ae82, type: 3}
   m_Name: Patrol Action
   m_EditorClassIdentifier: 
+  rayRadius: 0.4
+  rayDistance: 1
+  rayPosOffset: {x: 0, y: 0, z: 0}
   blockMask:
     serializedVersion: 2
     m_Bits: 1

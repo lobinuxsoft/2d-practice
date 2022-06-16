@@ -37,7 +37,7 @@ public class Bomb : MonoBehaviour
     {
         if (TryGetComponent(out Renderer renderer)) renderer.enabled = false;
 
-        if(TryGetComponent(out Collider collider)) collider.enabled = false;
+        if (TryGetComponent(out Collider collider)) collider.enabled = false;
 
 
         Instantiate(explosion, transform.position, Quaternion.identity);

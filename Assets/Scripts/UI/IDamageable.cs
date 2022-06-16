@@ -7,6 +7,6 @@ public interface IDamageable
 
     void SetDamage(int value);
 
-    event Action healthChanged;
-    event Action maxHealthChanged;
+    event Action<int> healthChanged;
+    event Action<int> maxHealthChanged;
 }

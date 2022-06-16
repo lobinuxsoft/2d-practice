@@ -10478,7 +10478,8 @@ GameObject:
   - component: {fileID: 619314313}
   - component: {fileID: 619314312}
   - component: {fileID: 619314319}
-  m_Layer: 0
+  - component: {fileID: 619314320}
+  m_Layer: 8
   m_Name: Enemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10544,8 +10545,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c4aca2d8bdcd3945ba1127457fb5635, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxSpeed: 5
-  maxAcceleration: 5
+  maxSpeed: 4
+  maxAcceleration: 4
   drag: 2
   gizmosColor: {r: 0, g: 1, b: 0, a: 1}
 --- !u!54 &619314314
@@ -10574,8 +10575,8 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.3
-  m_Height: 1.64
+  m_Radius: 0.25
+  m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &619314316
@@ -10598,7 +10599,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: 94593d6108bc89347a8e806dd62e6115, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -10656,6 +10657,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   initialState: {fileID: 11400000, guid: 1658efea8412062459bc97ef8b2242c8, type: 2}
+--- !u!114 &619314320
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 619314311}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78f981635f9b109408d6ccbc0d07ddb4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 5
+  maxHealth: 5
 --- !u!1 &625768088
 GameObject:
   m_ObjectHideFlags: 0
@@ -16411,7 +16426,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1179736245
 MonoBehaviour:
   m_ObjectHideFlags: 0

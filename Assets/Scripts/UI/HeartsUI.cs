@@ -9,15 +9,15 @@ public class HeartsUI : HealthUI
     {
         base.OnEnable();
         hearts = document.rootVisualElement.Q("panel");
-        OnMaxHealthChanged();
-        OnHealthChanged();
+        OnMaxHealthChanged(damageable.Health);
+        OnHealthChanged(damageable.MaxHealth);
     }
 
-    protected override void OnHealthChanged()
+    protected override void OnHealthChanged(int health)
     {
         for (int i = 0; i < hearts.childCount; i++)
         {
-            if (i < damageable.Health)
+            if (i < health)
             {
                 hearts[i][0].style.visibility = Visibility.Visible;
             }
@@ -28,11 +28,11 @@ public class HeartsUI : HealthUI
         }
     }
 
-    protected override void OnMaxHealthChanged()
+    protected override void OnMaxHealthChanged(int maxHealth)
     {
         for (int i = 0; i < hearts.childCount; i++)
         {
-            if (i < damageable.MaxHealth)
+            if (i < maxHealth)
             {
                 hearts[i].style.visibility = Visibility.Visible;
             }

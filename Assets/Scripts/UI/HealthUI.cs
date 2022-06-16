@@ -38,7 +38,7 @@ public abstract class HealthUI : MonoBehaviour
         }
     }
 
-    protected abstract void OnHealthChanged();
+    protected abstract void OnHealthChanged(int health);
 
-    protected abstract void OnMaxHealthChanged();
+    protected abstract void OnMaxHealthChanged(int maxHealth);
 }

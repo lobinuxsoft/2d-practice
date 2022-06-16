@@ -31,7 +31,7 @@ public class Player : MonoBehaviour, IDamageable
         set
         {
             health = Mathf.Clamp(value, 0, maxHealth);
-            healthChanged?.Invoke();
+            healthChanged?.Invoke(health);
         }
     }
 
@@ -41,10 +41,10 @@ public class Player : MonoBehaviour, IDamageable
         set
         {
             maxHealth = value;
-            maxHealthChanged?.Invoke();
+            maxHealthChanged?.Invoke(maxHealth);
         }
     }
 
-    public event Action healthChanged;
-    public event Action maxHealthChanged;
+    public event Action<int> healthChanged;
+    public event Action<int> maxHealthChanged;
 }

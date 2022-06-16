@@ -1,24 +1,28 @@
-﻿using System.Collections;
-using UnityEngine;
-using UnityEngine.UIElements;
+﻿using UnityEngine.UIElements;
 
 public class HealthBarUI : HealthUI
 {
     private ProgressBar bar;
+    private int health;
+    private int maxHealth;
 
     protected override void OnEnable()
     {
         base.OnEnable();
         bar = document.rootVisualElement.Q<ProgressBar>();
 
-        bar.value = (float)damageable.Health / damageable.MaxHealth;
-        bar.title = $"{damageable.Health}/{damageable.MaxHealth}";
+        health = damageable.Health;
+        maxHealth = damageable.MaxHealth;
+
+        bar.value = (float)health / maxHealth;
+        bar.title = $"{health}/{maxHealth}";
     }
 
-    protected override void OnHealthChanged()
+    protected override void OnHealthChanged(int health)
     {
-        bar.value = (float)damageable.Health / damageable.MaxHealth;
-        bar.title = $"{damageable.Health}/{damageable.MaxHealth}";
+        this.health = health;
+        bar.value = (float)this.health / this.maxHealth;
+        bar.title = $"{this.health}/{this.maxHealth}";
 
         if (damageable.Health > 0)
         {
@@ -33,9 +37,10 @@ public class HealthBarUI : HealthUI
         }
     }
 
-    protected override void OnMaxHealthChanged()
+    protected override void OnMaxHealthChanged(int maxHealth)
     {
-        bar.value = (float)damageable.Health / damageable.MaxHealth;
-        bar.title = $"{damageable.Health}/{damageable.MaxHealth}";
+        this.maxHealth = maxHealth;
+        bar.value = (float)this.health / this.maxHealth;
+        bar.title = $"{this.health}/{this.maxHealth}";
     }
 }
