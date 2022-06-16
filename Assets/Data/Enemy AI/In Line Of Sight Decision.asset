@@ -12,3 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3aa453126bea6f41b9b384dca695a07, type: 3}
   m_Name: In Line Of Sight Decision
   m_EditorClassIdentifier: 
+  iSawIt: 1
+  reachDistance: 1

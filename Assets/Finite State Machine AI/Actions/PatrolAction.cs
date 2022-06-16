@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.AI;
 
 [CreateAssetMenu(menuName = "Finite State Machine AI/Actions/Patrol")]
 public class PatrolAction : FSMAction
@@ -8,21 +9,21 @@ public class PatrolAction : FSMAction
     [SerializeField] Vector3 rayPosOffset = Vector3.zero;
     [SerializeField] LayerMask blockMask;
 
-    private Vector2 dir = Vector2.up;
+    private Vector3 dir = Vector3.forward;
 
     public override void Excute(BaseStateMachine machine)
     {
-        Movement mov = machine.GetComponent<Movement>();
+        NavMeshAgent agent = machine.GetComponent<NavMeshAgent>();
 
-        if(CheckDirToMove(machine.transform.position, new Vector3(dir.x, 0, -dir.y)))
+        if(CheckDirToMove(machine.transform.position, dir))
         {
             dir = ChangeDir();
         }
 
-        mov.MoveDir(dir);
+        agent.SetDestination(machine.transform.position + dir);
     }
 
-    private Vector2 ChangeDir()
+    private Vector3 ChangeDir()
     {
         Random.InitState(Mathf.RoundToInt(Time.time));
 
@@ -31,16 +32,16 @@ public class PatrolAction : FSMAction
         switch(rnd)
         {
             case 0:
-                return Vector2.up;
+                return Vector3.forward;
                 
             case 1:
-                return Vector2.right;
+                return Vector3.right;
 
             case 2:
-                return Vector2.down;
+                return Vector3.back;
 
             default:
-                return Vector2.left;
+                return Vector3.left;
         }
     }
 
