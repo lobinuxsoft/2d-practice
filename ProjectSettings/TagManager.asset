@@ -15,8 +15,8 @@ TagManager:
   - Explosion
   - Bomb
   - Enemy
-  - 
-  - 
+  - Block
+  - EnemyDamager
   - 
   - 
   - 

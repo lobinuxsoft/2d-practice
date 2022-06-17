@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Damageable : MonoBehaviour, IDamageable
 {
@@ -52,9 +53,14 @@ public class Damageable : MonoBehaviour, IDamageable
 
     private void CheckHealth(int health)
     {
-        if (health <= 0) Destroy(this.gameObject);
+        if (health <= 0) 
+        {
+            onDestroy.Invoke(this.transform.position);
+            Destroy(this.gameObject);
+        }
     }
 
     public event Action<int> healthChanged;
     public event Action<int> maxHealthChanged;
+    public UnityEvent<Vector3> onDestroy;
 }

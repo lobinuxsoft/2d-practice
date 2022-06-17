@@ -12,6 +12,7 @@ public class Player : MonoBehaviour, IDamageable
     private void Awake()
     {
         blinkEffect = GetComponent<BlinkEffect>();
+        healthChanged += CheckHealth;
     }
 
     public async void SetDamage(int value)
@@ -42,6 +43,14 @@ public class Player : MonoBehaviour, IDamageable
         {
             maxHealth = value;
             maxHealthChanged?.Invoke(maxHealth);
+        }
+    }
+
+    private void CheckHealth(int health)
+    {
+        if (health <= 0)
+        {
+            gameObject.SetActive(false);
         }
     }
 
