@@ -1,5 +1,6 @@
 ﻿using System;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Player : MonoBehaviour, IDamageable
 {
@@ -8,6 +9,10 @@ public class Player : MonoBehaviour, IDamageable
 
     BlinkEffect blinkEffect;
     bool waitDamageEnd = false;
+
+    public event Action<int> healthChanged;
+    public event Action<int> maxHealthChanged;
+    public UnityEvent onPlayerDeath;
 
     private void Awake()
     {
@@ -50,10 +55,8 @@ public class Player : MonoBehaviour, IDamageable
     {
         if (health <= 0)
         {
+            if(gameObject.activeSelf) onPlayerDeath?.Invoke();
             gameObject.SetActive(false);
         }
     }
-
-    public event Action<int> healthChanged;
-    public event Action<int> maxHealthChanged;
 }

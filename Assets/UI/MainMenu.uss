@@ -1,6 +1,4 @@
 .menu_button {
-    width: auto;
-    height: auto;
     font-size: 400%;
     background-image: url('project://database/Assets/UI/Art/UI/_Btn%20Preview/BackgroundKeyboard.png?fileID=21300000&guid=2a07db719ef564c43939d7dc7c659953&type=3#BackgroundKeyboard');
     -unity-slice-left: 16;
@@ -17,17 +15,12 @@
     border-right-color: rgba(0, 0, 0, 0);
     border-top-color: rgba(0, 0, 0, 0);
     border-bottom-color: rgba(0, 0, 0, 0);
-    margin-top: 1%;
     transition-duration: 0.5s;
-    padding-left: 1%;
-    padding-right: 1%;
-    margin-left: 40%;
-    margin-right: 40%;
+    padding-left: 2%;
+    padding-right: 2%;
 }
 
 .menu_button:hover {
-    width: auto;
-    height: auto;
     font-size: 400%;
     background-image: url('project://database/Assets/UI/Art/UI/_Btn%20Preview/BackgroundKeyboard.png?fileID=21300000&guid=2a07db719ef564c43939d7dc7c659953&type=3#BackgroundKeyboard');
     -unity-slice-left: 16;
@@ -36,27 +29,19 @@
     -unity-slice-bottom: 16;
     -unity-text-align: middle-center;
     -unity-font-style: bold;
-    padding-bottom: 1%;
-    padding-top: 1%;
     text-shadow: 1px 1px 2px rgb(58, 36, 0);
     background-color: rgba(0, 0, 0, 0);
     border-left-color: rgba(0, 0, 0, 0);
     border-right-color: rgba(0, 0, 0, 0);
     border-top-color: rgba(0, 0, 0, 0);
     border-bottom-color: rgba(0, 0, 0, 0);
-    margin-top: 1%;
     transition-duration: 0.5s;
-    padding-left: 1%;
-    padding-right: 1%;
-    margin-left: 40%;
-    margin-right: 40%;
     scale: 1.15 1.15;
     transition-timing-function: ease-out-bounce;
+    -unity-background-image-tint-color: rgba(255, 226, 177, 255);
 }
 
 .menu_button:active {
-    width: auto;
-    height: auto;
     font-size: 400%;
     background-image: url('project://database/Assets/UI/Art/UI/_Btn%20Preview/BackgroundKeyboard.png?fileID=21300000&guid=2a07db719ef564c43939d7dc7c659953&type=3#BackgroundKeyboard');
     -unity-slice-left: 16;
@@ -65,20 +50,14 @@
     -unity-slice-bottom: 16;
     -unity-text-align: middle-center;
     -unity-font-style: bold;
-    padding-bottom: 1%;
-    padding-top: 1%;
     text-shadow: 1px 1px 2px rgb(58, 36, 0);
     background-color: rgba(0, 0, 0, 0);
     border-left-color: rgba(0, 0, 0, 0);
     border-right-color: rgba(0, 0, 0, 0);
     border-top-color: rgba(0, 0, 0, 0);
     border-bottom-color: rgba(0, 0, 0, 0);
-    margin-top: 1%;
     transition-duration: 0.25s;
-    padding-left: 1%;
-    padding-right: 1%;
-    margin-left: 40%;
-    margin-right: 40%;
     scale: 1.2 1.15;
     transition-timing-function: ease-out-back;
+    -unity-background-image-tint-color: rgba(255, 202, 159, 255);
 }

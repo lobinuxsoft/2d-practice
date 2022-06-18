@@ -2,14 +2,14 @@
     <Style src="project://database/Assets/UI/MainMenu.uss?fileID=7433441132597879392&amp;guid=bc5fc70f95219eb4880df32c7ec6712e&amp;type=3#MainMenu" />
     <Style src="project://database/Assets/UI/Generics.uss?fileID=7433441132597879392&amp;guid=6b56e9a10491f9443bc314aad49f64a2&amp;type=3#Generics" />
     <ui:Label text="BOMBER MAN" display-tooltip-when-elided="true" style="-unity-text-align: middle-center; font-size: 200%; color: rgb(255, 255, 255); top: 25px; flex-shrink: 1; justify-content: center; align-items: center; text-shadow: 5px 5px 8px rgb(0, 0, 0); -unity-font-style: bold;" />
-    <ui:VisualElement name="main-panel" style="flex-grow: 1; align-items: stretch; justify-content: center; margin-left: 150px; margin-right: 150px; margin-top: 150px; margin-bottom: 150px;">
+    <ui:VisualElement name="main-panel" style="flex-grow: 1; align-items: center; justify-content: center; margin-left: 150px; margin-right: 150px; margin-top: 150px; margin-bottom: 150px;">
         <ui:Button text="Play" display-tooltip-when-elided="true" name="play-button" class="menu_button" />
         <ui:Button text="Options" display-tooltip-when-elided="true" name="option-button" class="menu_button" />
         <ui:Button text="Credits" display-tooltip-when-elided="true" name="credits-button" class="menu_button" />
         <ui:Button text="Quit" display-tooltip-when-elided="true" name="quit-button" class="menu_button" />
     </ui:VisualElement>
-    <ui:VisualElement name="options-panel" class="popup" style="height: 90%; left: 5%; right: 5%; width: 90%; top: 5%; bottom: 5%; justify-content: space-around; align-items: stretch;">
-        <ui:VisualElement style="flex-grow: 1; overflow: visible; position: absolute; width: 100%; height: 100%; background-image: url(&apos;project://database/Assets/UI/Art/UI/Frame1.png?fileID=21300000&amp;guid=bb631713d063a2f4c95f180d19a009f2&amp;type=3#Frame1&apos;);" />
+    <ui:VisualElement name="options-panel" class="popup" style="height: 90%; width: 90%; justify-content: space-around; align-items: center; left: 5%; right: 5%; -unity-slice-left: 10; -unity-slice-top: 10; -unity-slice-right: 10; -unity-slice-bottom: 10; top: 5%; bottom: 5%;">
+        <ui:VisualElement style="flex-grow: 1; overflow: visible; position: absolute; width: 100%; height: 100%; background-image: url(&apos;project://database/Assets/UI/Art/UI/Frame1.png?fileID=21300000&amp;guid=bb631713d063a2f4c95f180d19a009f2&amp;type=3#Frame1&apos;); left: 0; top: 0; right: 0; bottom: 0; display: flex; -unity-slice-left: 10; -unity-slice-top: 10; -unity-slice-right: 10; -unity-slice-bottom: 10;" />
         <ui:Label text="Options" display-tooltip-when-elided="true" style="flex-shrink: 1; flex-grow: 0; -unity-text-align: middle-center; font-size: 150%; color: rgb(132, 72, 72); -unity-font-style: bold; margin-top: 30px;" />
         <ui:VisualElement style="margin-left: 10%; margin-right: 10%;">
             <ui:Label text="Audio Volume" display-tooltip-when-elided="true" style="-unity-text-align: middle-center; font-size: 80%; color: rgb(132, 72, 63); white-space: normal;" />
@@ -17,11 +17,11 @@
         </ui:VisualElement>
         <ui:Button text="Back" display-tooltip-when-elided="true" name="close-options-button" class="menu_button" style="margin-bottom: 70px;" />
     </ui:VisualElement>
-    <ui:VisualElement name="credits-panel" class="popup" style="height: 90%; left: 5%; right: 5%; width: 90%; top: 5%; bottom: 5%; justify-content: space-around; align-items: stretch;">
-        <ui:VisualElement style="flex-grow: 1; overflow: visible; position: absolute; width: 100%; height: 100%; background-image: url(&apos;project://database/Assets/UI/Art/UI/Frame1.png?fileID=21300000&amp;guid=bb631713d063a2f4c95f180d19a009f2&amp;type=3#Frame1&apos;);" />
+    <ui:VisualElement name="credits-panel" class="popup" style="height: 90%; left: 5%; right: 5%; width: 90%; top: 5%; bottom: 5%; justify-content: space-around; align-items: center; -unity-slice-left: 10; -unity-slice-top: 10; -unity-slice-right: 10; -unity-slice-bottom: 10;">
+        <ui:VisualElement style="flex-grow: 1; overflow: visible; position: absolute; width: 100%; height: 100%; background-image: url(&apos;project://database/Assets/UI/Art/UI/Frame1.png?fileID=21300000&amp;guid=bb631713d063a2f4c95f180d19a009f2&amp;type=3#Frame1&apos;); -unity-slice-left: 10; -unity-slice-top: 10; -unity-slice-right: 10; -unity-slice-bottom: 10;" />
         <ui:Label text="Credits" display-tooltip-when-elided="true" style="flex-shrink: 1; flex-grow: 0; -unity-text-align: middle-center; font-size: 150%; color: rgb(132, 72, 72); -unity-font-style: bold; margin-top: 30px;" />
         <ui:Label text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum." display-tooltip-when-elided="true" style="flex-shrink: 1; flex-grow: 1; -unity-text-align: middle-center; font-size: 50%; color: rgb(132, 72, 63); flex-wrap: nowrap; white-space: normal; margin-left: 4%; margin-right: 4%; margin-top: 4%; margin-bottom: 4%;" />
         <ui:Button text="Back" display-tooltip-when-elided="true" name="close-credits-button" class="menu_button" style="margin-bottom: 70px;" />
     </ui:VisualElement>
-    <ui:VisualElement picking-mode="Ignore" name="transition" class="transition" style="display: none;" />
+    <ui:VisualElement picking-mode="Ignore" name="transition" class="transition" />
 </ui:UXML>
