@@ -8,7 +8,7 @@ using UnityEngine.Events;
 [RequireComponent(typeof(SphereCollider))]
 public class SphereEventTrigger : MonoBehaviour
 {
-    [SerializeField] private UnityEvent<GameObject> onTriggerEnterEvent;
+    public UnityEvent<GameObject> onTriggerEnterEvent;
 
     private SphereCollider sphere;
 
