@@ -1,0 +1,22 @@
+.panel {
+    position: relative;
+    width: 22%;
+    height: 6%;
+    flex-direction: row;
+    margin-left: 1%;
+    margin-top: 1%;
+}
+
+.heart-container {
+    width: 10%;
+    height: 70%;
+    background-image: url('project://database/Assets/UI/Art/UI/HeartBorder.png?fileID=21300000&guid=f7832212859f3334bb51bc203948aeb0&type=3#HeartBorder');
+    display: none;
+}
+
+.heart {
+    background-image: url('project://database/Assets/UI/Art/UI/Heart.png?fileID=21300000&guid=3fd36e940da953743b7164a5d8298a60&type=3#Heart');
+    width: auto;
+    height: auto;
+    flex-grow: 1;
+}

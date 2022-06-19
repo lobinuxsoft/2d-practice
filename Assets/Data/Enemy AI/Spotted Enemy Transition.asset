@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea7e508873e337645aabf35b673d840a, type: 3}
+  m_Name: Spotted Enemy Transition
+  m_EditorClassIdentifier: 
+  decision: {fileID: 11400000, guid: df7fef9a687a0b54fa51e49acb3c6c1c, type: 2}
+  trueState: {fileID: 11400000, guid: 19c3109be57b75a43882eb569cc20b42, type: 2}
+  falseState: {fileID: 11400000, guid: 1658efea8412062459bc97ef8b2242c8, type: 2}

@@ -1,0 +1,72 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI/Health%20Bar/Hearts.uss?fileID=7433441132597879392&amp;guid=85403e1c9f6df9b4b958cd6a95b0eb83&amp;type=3#Hearts" />
+    <Style src="project://database/Assets/UI/Generics.uss?fileID=7433441132597879392&amp;guid=6b56e9a10491f9443bc314aad49f64a2&amp;type=3#Generics" />
+    <Style src="project://database/Assets/UI/MainMenu.uss?fileID=7433441132597879392&amp;guid=bc5fc70f95219eb4880df32c7ec6712e&amp;type=3#MainMenu" />
+    <ui:VisualElement name="panel" picking-mode="Ignore" class="panel" style="flex-wrap: wrap; position: absolute; right: 0; left: 0; bottom: 0; top: 0; width: 24%;">
+        <ui:VisualElement name="heart-container" class="heart-container" style="display: flex;">
+            <ui:VisualElement name="heart" class="heart" />
+        </ui:VisualElement>
+        <ui:VisualElement name="heart-container" class="heart-container" style="display: flex;">
+            <ui:VisualElement name="heart" class="heart" />
+        </ui:VisualElement>
+        <ui:VisualElement name="heart-container" class="heart-container" style="display: flex;">
+            <ui:VisualElement name="heart" class="heart" />
+        </ui:VisualElement>
+        <ui:VisualElement name="heart-container" class="heart-container" style="display: flex;">
+            <ui:VisualElement name="heart" class="heart" />
+        </ui:VisualElement>
+        <ui:VisualElement name="heart-container" class="heart-container" style="display: flex;">
+            <ui:VisualElement name="heart" class="heart" />
+        </ui:VisualElement>
+        <ui:VisualElement name="heart-container" class="heart-container" style="display: flex;">
+            <ui:VisualElement name="heart" class="heart" />
+        </ui:VisualElement>
+        <ui:VisualElement name="heart-container" class="heart-container" style="display: flex;">
+            <ui:VisualElement name="heart" class="heart" />
+        </ui:VisualElement>
+        <ui:VisualElement name="heart-container" class="heart-container" style="display: flex;">
+            <ui:VisualElement name="heart" class="heart" />
+        </ui:VisualElement>
+        <ui:VisualElement name="heart-container" class="heart-container" style="display: flex;">
+            <ui:VisualElement name="heart" class="heart" />
+        </ui:VisualElement>
+        <ui:VisualElement name="heart-container" class="heart-container" style="display: flex;">
+            <ui:VisualElement name="heart" class="heart" />
+        </ui:VisualElement>
+        <ui:VisualElement name="heart-container" class="heart-container" style="display: flex;">
+            <ui:VisualElement name="heart" class="heart" />
+        </ui:VisualElement>
+        <ui:VisualElement name="heart-container" class="heart-container" style="display: flex;">
+            <ui:VisualElement name="heart" class="heart" />
+        </ui:VisualElement>
+        <ui:VisualElement name="heart-container" class="heart-container" style="display: flex;">
+            <ui:VisualElement name="heart" class="heart" />
+        </ui:VisualElement>
+        <ui:VisualElement name="heart-container" class="heart-container" style="display: flex;">
+            <ui:VisualElement name="heart" class="heart" />
+        </ui:VisualElement>
+        <ui:VisualElement name="heart-container" class="heart-container" style="display: flex;">
+            <ui:VisualElement name="heart" class="heart" />
+        </ui:VisualElement>
+        <ui:VisualElement name="heart-container" class="heart-container" style="display: flex;">
+            <ui:VisualElement name="heart" class="heart" />
+        </ui:VisualElement>
+        <ui:VisualElement name="heart-container" class="heart-container" style="display: flex;">
+            <ui:VisualElement name="heart" class="heart" />
+        </ui:VisualElement>
+        <ui:VisualElement name="heart-container" class="heart-container" style="display: flex;">
+            <ui:VisualElement name="heart" class="heart" />
+        </ui:VisualElement>
+        <ui:VisualElement name="heart-container" class="heart-container" style="display: flex;">
+            <ui:VisualElement name="heart" class="heart" />
+        </ui:VisualElement>
+        <ui:VisualElement name="heart-container" class="heart-container" style="display: flex;">
+            <ui:VisualElement name="heart" class="heart" />
+        </ui:VisualElement>
+    </ui:VisualElement>
+    <ui:VisualElement name="result-panel" picking-mode="Ignore" class="result-panel">
+        <ui:Label text="Game Over" display-tooltip-when-elided="true" name="result-label" style="font-size: 200%; -unity-font-style: bold; color: rgb(171, 150, 117); -unity-text-align: middle-center; text-shadow: 5px 5px 10px rgba(0, 0, 0, 0.8);" />
+        <ui:Button text="Return to main menu" display-tooltip-when-elided="true" name="result-button" class="menu_button" />
+    </ui:VisualElement>
+    <ui:VisualElement picking-mode="Ignore" name="transition" class="transition" style="background-color: rgb(0, 0, 0); position: absolute; flex-grow: 1; width: 100%; height: 100%;" />
+</ui:UXML>
