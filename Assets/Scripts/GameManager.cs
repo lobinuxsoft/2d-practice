@@ -3,9 +3,11 @@ using UnityEngine.Events;
 
 public class GameManager : MonoBehaviour
 {
+    [SerializeField] bool isDoorOpen = false;
     [SerializeField] int enemiesAmount = 0;
     [SerializeField] int blocksAmount = 0;
     [SerializeField] GameObject doorPrefab;
+
 
     GameObject playerInScene = null;
     GameObject doorInScene = null;
@@ -89,6 +91,8 @@ public class GameManager : MonoBehaviour
 
     private void OpenDoor(bool open)
     {
+        isDoorOpen = open;
+
         if (doorInScene.TryGetComponent(out SphereEventTrigger eventTrigger))
         {
             eventTrigger.enabled = open;
@@ -103,7 +107,7 @@ public class GameManager : MonoBehaviour
 
     private void LevelCompleted(GameObject obj)
     {
-        if (obj.CompareTag("Player"))
+        if (obj.CompareTag("Player") && isDoorOpen)
         {
             playerInScene.SetActive(false);
 

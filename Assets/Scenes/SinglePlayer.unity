@@ -20529,6 +20529,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7bdbdf5c3fd125145ba71d53e096d818, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isDoorOpen: 0
   enemiesAmount: 0
   blocksAmount: 0
   doorPrefab: {fileID: 385259699908764719, guid: 1de51b5d5102a374f9792873d555fe96, type: 3}
@@ -21918,13 +21919,13 @@ Light:
   m_Type: 1
   m_Shape: 0
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 1
+  m_Intensity: 0.1
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
   m_Shadows:
-    m_Type: 2
+    m_Type: 0
     m_Resolution: -1
     m_CustomResolution: -1
     m_Strength: 1
@@ -23250,7 +23251,7 @@ MonoBehaviour:
   priority: 0
   blendDistance: 0
   weight: 1
-  sharedProfile: {fileID: 11400000, guid: f4a37dee0337fc24f9fa94fec238d5b3, type: 2}
+  sharedProfile: {fileID: 11400000, guid: 61b920cb93ef24d4c9846e181de4323d, type: 2}
 --- !u!4 &1303617408
 Transform:
   m_ObjectHideFlags: 0
