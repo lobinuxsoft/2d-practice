@@ -309,3 +309,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 3
   maxHealth: 3
+  onPlayerDeath:
+    m_PersistentCalls:
+      m_Calls: []

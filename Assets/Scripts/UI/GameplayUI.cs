@@ -45,5 +45,11 @@ public class GameplayUI : MonoBehaviour
         resultPanel.SetEnabled(true);
     }
 
-    private void ReturnToMainMenu() => SceneManager.LoadScene("MainMenu");
+    private void ReturnToMainMenu() 
+    {
+        transition.RegisterCallback<TransitionEndEvent>(ChangeScene);
+        transition.SetEnabled(true);
+    }
+
+    private void ChangeScene(TransitionEndEvent evt) => SceneManager.LoadScene("MainMenu");
 }

@@ -33,6 +33,8 @@ public class MainMenuUI : MonoBehaviour
 
         playButton = document.rootVisualElement.Q<Button>("play-button");
         optionButton = document.rootVisualElement.Q<Button>("option-button");
+        optionButton.SetEnabled(false);
+        optionButton.style.visibility = Visibility.Hidden;
 
         creditsButton = document.rootVisualElement.Q<Button>("credits-button");
         quitButton = document.rootVisualElement.Q<Button>("quit-button");
