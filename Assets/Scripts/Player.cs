@@ -20,6 +20,8 @@ public class Player : MonoBehaviour, IDamageable
         healthChanged += CheckHealth;
     }
 
+    private void OnDestroy() => healthChanged -= CheckHealth;
+
     public async void SetDamage(int value)
     {
         if (!waitDamageEnd)

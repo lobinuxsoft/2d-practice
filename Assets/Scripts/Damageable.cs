@@ -15,10 +15,9 @@ public class Damageable : MonoBehaviour, IDamageable
         blinkEffect = GetComponent<BlinkEffect>();
     }
 
-    private void Start()
-    {
-        healthChanged += CheckHealth;
-    }
+    private void Start() => healthChanged += CheckHealth;
+
+    private void OnDestroy() => healthChanged -= CheckHealth;
 
     public async void SetDamage(int value)
     {

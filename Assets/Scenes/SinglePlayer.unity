@@ -20533,6 +20533,37 @@ MonoBehaviour:
   enemiesAmount: 0
   blocksAmount: 0
   doorPrefab: {fileID: 385259699908764719, guid: 1de51b5d5102a374f9792873d555fe96, type: 3}
+  onDoorFounded:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1301374668}
+        m_TargetAssemblyTypeName: ScreenMessageUI, Assembly-CSharp
+        m_MethodName: ShowMessage
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: El portal a aparecido \nElimina todos los enemigos para
+            que se abra.
+          m_BoolArgument: 0
+        m_CallState: 2
+  onDoorOpened:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1301374668}
+        m_TargetAssemblyTypeName: ScreenMessageUI, Assembly-CSharp
+        m_MethodName: ShowMessage
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: El portal se abrio.. \nPuedes salir del nivel.
+          m_BoolArgument: 0
+        m_CallState: 2
   onLevelCompleted:
     m_PersistentCalls:
       m_Calls:
@@ -23112,6 +23143,7 @@ GameObject:
   - component: {fileID: 1301374664}
   - component: {fileID: 1301374667}
   - component: {fileID: 1301374666}
+  - component: {fileID: 1301374668}
   m_Layer: 5
   m_Name: Gameplay UI
   m_TagString: Untagged
@@ -23216,6 +23248,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 250210b70d059094ab7bf6c7b5e8ef67, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1301374668
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1301374660}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 27c85a3abd49cfd4187a4c29a8a71faa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1303617406

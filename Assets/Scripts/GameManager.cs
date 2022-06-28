@@ -12,6 +12,8 @@ public class GameManager : MonoBehaviour
     GameObject playerInScene = null;
     GameObject doorInScene = null;
 
+    public UnityEvent onDoorFounded;
+    public UnityEvent onDoorOpened;
     public UnityEvent onLevelCompleted;
 
     // Start is called before the first frame update
@@ -65,8 +67,10 @@ public class GameManager : MonoBehaviour
 
                 if(rnd > blocksAmount * .9f)
                 {
-                    doorInScene = Instantiate(doorPrefab, pos, Quaternion.identity);
+                    onDoorFounded?.Invoke();
 
+                    doorInScene = Instantiate(doorPrefab, pos, Quaternion.identity);
+                    
                     if (doorInScene.TryGetComponent(out SphereEventTrigger eventTrigger))
                     {
                         eventTrigger.onTriggerEnterEvent.AddListener(LevelCompleted);
@@ -77,6 +81,8 @@ public class GameManager : MonoBehaviour
             }
             else
             {
+                onDoorFounded?.Invoke();
+
                 doorInScene = Instantiate(doorPrefab, pos, Quaternion.identity);
 
                 if (doorInScene.TryGetComponent(out SphereEventTrigger eventTrigger))
@@ -103,6 +109,8 @@ public class GameManager : MonoBehaviour
             var mainModule = particle.main;
             mainModule.startColor = open ? Color.cyan : Color.red;
         }
+
+        if (isDoorOpen) onDoorOpened?.Invoke();
     }
 
     private void LevelCompleted(GameObject obj)
