@@ -103,7 +103,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 1
   explosionLenght: 3
-  delayExplosionsInMilisec: 50
+  delayExplosionsInSec: 0.025
   explosion: {fileID: 2011333240752990700, guid: 3f54548a67af5d54e8930b879caef615, type: 3}
 --- !u!114 &-3822026441472387213
 MonoBehaviour:

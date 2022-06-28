@@ -1,4 +1,5 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <ui:Template name="transition" src="project://database/Assets/UI/TransitionUI.uxml?fileID=9197481963319205126&amp;guid=7b7557320f934354d87a0e75ac92445b&amp;type=3#TransitionUI" />
     <Style src="project://database/Assets/UI/MainMenu.uss?fileID=7433441132597879392&amp;guid=bc5fc70f95219eb4880df32c7ec6712e&amp;type=3#MainMenu" />
     <Style src="project://database/Assets/UI/Generics.uss?fileID=7433441132597879392&amp;guid=6b56e9a10491f9443bc314aad49f64a2&amp;type=3#Generics" />
     <ui:Label text="BOMBER MAN" display-tooltip-when-elided="true" style="-unity-text-align: middle-center; font-size: 200%; color: rgb(255, 255, 255); top: 25px; flex-shrink: 1; justify-content: center; align-items: center; text-shadow: 5px 5px 8px rgb(0, 0, 0); -unity-font-style: bold;" />
@@ -23,5 +24,5 @@
         <ui:Label text="Development by&#10;&#10;&lt;b&gt;Matias Galarza&lt;/b&gt;" display-tooltip-when-elided="true" style="flex-shrink: 1; flex-grow: 1; -unity-text-align: middle-center; font-size: 50%; color: rgb(132, 72, 63); flex-wrap: nowrap; white-space: normal; margin-left: 4%; margin-right: 4%; margin-top: 4%; margin-bottom: 4%;" />
         <ui:Button text="Back" display-tooltip-when-elided="true" name="close-credits-button" class="menu_button" style="margin-bottom: 70px;" />
     </ui:VisualElement>
-    <ui:VisualElement picking-mode="Ignore" name="transition" class="transition" />
+    <ui:Instance template="transition" name="TransitionUI" picking-mode="Ignore" style="position: absolute; width: 100%; height: 100%;" />
 </ui:UXML>

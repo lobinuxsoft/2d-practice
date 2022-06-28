@@ -20529,9 +20529,41 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7bdbdf5c3fd125145ba71d53e096d818, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isDoorOpen: 0
   enemiesAmount: 0
   blocksAmount: 0
   doorPrefab: {fileID: 385259699908764719, guid: 1de51b5d5102a374f9792873d555fe96, type: 3}
+  onDoorFounded:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1301374668}
+        m_TargetAssemblyTypeName: ScreenMessageUI, Assembly-CSharp
+        m_MethodName: ShowMessage
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: El portal a aparecido \nElimina todos los enemigos para
+            que se abra.
+          m_BoolArgument: 0
+        m_CallState: 2
+  onDoorOpened:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1301374668}
+        m_TargetAssemblyTypeName: ScreenMessageUI, Assembly-CSharp
+        m_MethodName: ShowMessage
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: El portal se abrio.. \nPuedes salir del nivel.
+          m_BoolArgument: 0
+        m_CallState: 2
   onLevelCompleted:
     m_PersistentCalls:
       m_Calls:
@@ -21918,13 +21950,13 @@ Light:
   m_Type: 1
   m_Shape: 0
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 1
+  m_Intensity: 0.1
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
   m_Shadows:
-    m_Type: 2
+    m_Type: 0
     m_Resolution: -1
     m_CustomResolution: -1
     m_Strength: 1
@@ -23111,6 +23143,7 @@ GameObject:
   - component: {fileID: 1301374664}
   - component: {fileID: 1301374667}
   - component: {fileID: 1301374666}
+  - component: {fileID: 1301374668}
   m_Layer: 5
   m_Name: Gameplay UI
   m_TagString: Untagged
@@ -23217,6 +23250,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 250210b70d059094ab7bf6c7b5e8ef67, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1301374668
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1301374660}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 27c85a3abd49cfd4187a4c29a8a71faa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1303617406
 GameObject:
   m_ObjectHideFlags: 0
@@ -23250,7 +23295,7 @@ MonoBehaviour:
   priority: 0
   blendDistance: 0
   weight: 1
-  sharedProfile: {fileID: 11400000, guid: f4a37dee0337fc24f9fa94fec238d5b3, type: 2}
+  sharedProfile: {fileID: 11400000, guid: 61b920cb93ef24d4c9846e181de4323d, type: 2}
 --- !u!4 &1303617408
 Transform:
   m_ObjectHideFlags: 0

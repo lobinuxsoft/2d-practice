@@ -3,13 +3,17 @@ using UnityEngine.Events;
 
 public class GameManager : MonoBehaviour
 {
+    [SerializeField] bool isDoorOpen = false;
     [SerializeField] int enemiesAmount = 0;
     [SerializeField] int blocksAmount = 0;
     [SerializeField] GameObject doorPrefab;
 
+
     GameObject playerInScene = null;
     GameObject doorInScene = null;
 
+    public UnityEvent onDoorFounded;
+    public UnityEvent onDoorOpened;
     public UnityEvent onLevelCompleted;
 
     // Start is called before the first frame update
@@ -63,8 +67,10 @@ public class GameManager : MonoBehaviour
 
                 if(rnd > blocksAmount * .9f)
                 {
-                    doorInScene = Instantiate(doorPrefab, pos, Quaternion.identity);
+                    onDoorFounded?.Invoke();
 
+                    doorInScene = Instantiate(doorPrefab, pos, Quaternion.identity);
+                    
                     if (doorInScene.TryGetComponent(out SphereEventTrigger eventTrigger))
                     {
                         eventTrigger.onTriggerEnterEvent.AddListener(LevelCompleted);
@@ -75,6 +81,8 @@ public class GameManager : MonoBehaviour
             }
             else
             {
+                onDoorFounded?.Invoke();
+
                 doorInScene = Instantiate(doorPrefab, pos, Quaternion.identity);
 
                 if (doorInScene.TryGetComponent(out SphereEventTrigger eventTrigger))
@@ -89,6 +97,8 @@ public class GameManager : MonoBehaviour
 
     private void OpenDoor(bool open)
     {
+        isDoorOpen = open;
+
         if (doorInScene.TryGetComponent(out SphereEventTrigger eventTrigger))
         {
             eventTrigger.enabled = open;
@@ -99,11 +109,13 @@ public class GameManager : MonoBehaviour
             var mainModule = particle.main;
             mainModule.startColor = open ? Color.cyan : Color.red;
         }
+
+        if (isDoorOpen) onDoorOpened?.Invoke();
     }
 
     private void LevelCompleted(GameObject obj)
     {
-        if (obj.CompareTag("Player"))
+        if (obj.CompareTag("Player") && isDoorOpen)
         {
             playerInScene.SetActive(false);
 

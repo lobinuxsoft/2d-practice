@@ -1,0 +1,8 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI/Generics.uss?fileID=7433441132597879392&amp;guid=6b56e9a10491f9443bc314aad49f64a2&amp;type=3#Generics" />
+    <ui:VisualElement name="message-panel" picking-mode="Ignore" class="message-panel">
+        <ui:VisualElement style="background-image: url(&apos;project://database/Assets/UI/Art/UI/Dialogue.png?fileID=21300000&amp;guid=8d2ffc1656b0bd449addaae85dae2ad1&amp;type=3#Dialogue&apos;); padding-left: 2%; padding-right: 2%; padding-top: 2%; padding-bottom: 2%;">
+            <ui:Label text="A beautifull screen message" display-tooltip-when-elided="true" name="message-label" style="font-size: 100%; -unity-font-style: italic;" />
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>
