@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
@@ -7,7 +8,7 @@ public class Bomb : MonoBehaviour
 {
     [SerializeField] LayerMask blockMask;
     [SerializeField] int explosionLenght = 3;
-    [SerializeField] int delayExplosionsInMilisec = 50;
+    [SerializeField] float delayExplosionsInSec = .025f;
     [SerializeField] GameObject explosion;
 
     public int ExplosionLenght
@@ -25,7 +26,7 @@ public class Bomb : MonoBehaviour
     {
         await blinkEffect.BlinkTask(3);
 
-        Explode();
+        StartCoroutine(Explode());
     }
 
     private void OnTriggerExit(Collider other)
@@ -33,7 +34,7 @@ public class Bomb : MonoBehaviour
         if(TryGetComponent(out Collider col)) col.isTrigger = false;
     }
 
-    async void Explode()
+    IEnumerator Explode()
     {
         if (TryGetComponent(out Renderer renderer)) renderer.enabled = false;
 
@@ -42,19 +43,22 @@ public class Bomb : MonoBehaviour
 
         Instantiate(explosion, transform.position, Quaternion.identity);
 
-        List<Task> explosions = new List<Task>();
+        List<Coroutine> routines = new List<Coroutine>();
 
-        explosions.Add(CreateExplosions(Vector3.forward, explosionLenght));
-        explosions.Add(CreateExplosions(Vector3.right, explosionLenght));
-        explosions.Add(CreateExplosions(Vector3.back, explosionLenght));
-        explosions.Add(CreateExplosions(Vector3.left, explosionLenght));
+        routines.Add(StartCoroutine(CreateExplosions(Vector3.forward, explosionLenght)));
+        routines.Add(StartCoroutine(CreateExplosions(Vector3.right, explosionLenght)));
+        routines.Add(StartCoroutine(CreateExplosions(Vector3.back, explosionLenght)));
+        routines.Add(StartCoroutine(CreateExplosions(Vector3.left, explosionLenght)));
 
-        await Task.WhenAll(explosions);
+        foreach (Coroutine routine in routines)
+        {
+            yield return routine;
+        }
 
         Destroy(gameObject);
     }
 
-    async Task CreateExplosions(Vector3 direction, int amount)
+    IEnumerator CreateExplosions(Vector3 direction, int amount)
     {
         for (int i = 1; i < amount; i++)
         {
@@ -66,7 +70,7 @@ public class Bomb : MonoBehaviour
             else
                 break;
 
-            await Task.Delay(delayExplosionsInMilisec);
+            yield return new WaitForSeconds(delayExplosionsInSec);
         }
     }
 }
